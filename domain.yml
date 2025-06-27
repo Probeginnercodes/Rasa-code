@@ -1,0 +1,167 @@
+version: "3.1"
+
+####################
+# INTENTS & ENTITIES
+####################
+intents:
+  - greet
+  - goodbye
+  - register
+  - provide_username
+  - provide_email
+  - order
+  - provide_user_id
+  - browse_products
+  - recommend_products
+  - provide_budget
+  - track_order
+  - provide_order_id
+  - make_complaint
+  - provide_complaint
+  - provide_tracking_id
+  - human_help
+  - nlu_fallback
+
+entities:
+  - username
+  - email
+  - user_id
+  - order_id
+  - budget
+  - complaint_text
+  - tracking_id
+
+#########
+# SLOTS
+#########
+slots:
+  username:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: username
+
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
+
+  user_id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: user_id
+
+  order_id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: order_id
+
+  budget:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: budget
+
+  complaint_text:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: complaint
+
+  tracking_id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: tracking_id
+
+  complaint_exists:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: provide_tracking_id
+        value: true
+      - type: from_intent
+        intent: make_complaint
+        value: false
+
+################
+# RESPONSE TEMPLATES
+################
+responses:
+
+  # GREET / GOODBYE
+  utter_greet:
+    - text: "Hello! How can I help you today?"
+  utter_goodbye:
+    - text: "Goodbye 👋"
+
+  # REGISTRATION
+  utter_ask_username:
+    - text: "Sure—what username would you like?"
+  utter_ask_email:
+    - text: "Great! What's your email address?"
+  utter_registration_success:
+    - text: "Thanks for registering! Your user ID is {user_id}."
+
+  # ORDER FLOW
+  utter_ask_user_id:
+    - text: "Please share your user ID so I can look up or place your order."
+  utter_no_user:
+    - text: "It looks like you’re not registered yet—please register first."
+  utter_order_status:
+    - text: "Here are your orders: {order_list}"
+  utter_ask_order_id:
+    - text: "Got it. Can you give me your order ID?"
+  utter_order_placed:
+    - text: "Your order has been placed! Anything else I can help with?"
+
+  # PRODUCT BROWSING / RECOMMENDATION
+  utter_ask_budget:
+    - text: "What’s your budget?"
+  utter_fetch_cheapest:
+    - text: "Here are our cheapest phones: {cheapest_list}"
+  utter_recommend:
+    - text: "Here are our top sellers: {best_sellers}"
+  utter_anything_else:
+    - text: "Anything else I can help with?"
+
+  # COMPLAINT FLOW
+  utter_ask_complaint:
+    - text: "Sorry to hear that. What’s your complaint?"
+  utter_ask_tracking_id:
+    - text: "Can you give me your tracking ID so I can check your existing complaint?"
+  utter_complaint_logged:
+    - text: "Your complaint has been logged. Your tracking ID is {tracking_id}."
+  utter_handle_existing_complaint:
+    - text: "I see you already have a complaint. I’ll connect you to a human agent."
+  utter_connect_agent:
+    - text: "One moment, I’ll get a human agent to help you."
+
+  # FALLBACKS
+  utter_default_fallback:
+    - text: "Sorry, I didn’t catch that. Could you rephrase?"
+  utter_nlu_fallback:
+    - text: "I’m not sure what you mean. Can you try again?"
+
+###########
+# ACTIONS
+###########
+actions:
+  - action_register_user
+  - action_list_orders
+  - action_place_order
+  - action_fetch_cheapest
+  - action_fetch_best_sellers
+  - action_fetch_by_budget
+  - action_check_existing
+  - action_handle_complaint
+
+##################
+# SESSION SETTINGS
+##################
+session_config:
+  session_expiration_time: 60    # minutes
+  carry_over_slots_to_new_session: true

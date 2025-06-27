@@ -1,0 +1,414 @@
+version: "3.1"
+
+nlu:
+
+# ─── GREET ──────────────────────────────────────────────────────────────────
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - hey there
+    - good morning
+    - good afternoon
+    - good evening
+    - hi chatbot
+    - hello there
+    - greetings
+    - howdy
+    - yo
+    - what’s up?
+    - hi there!
+    - hey bot
+    - hiya
+    - hello hello
+    - hey buddy
+    - good day
+    - hi hi
+    - hey, how are you?
+    - hi, how’s it going?
+    - how are you?
+    - 👋
+
+# ─── GOODBYE ────────────────────────────────────────────────────────────────
+- intent: goodbye
+  examples: |
+    - goodbye
+    - bye
+    - bye bye
+    - see you
+    - see you later
+    - catch you later
+    - talk to you later
+    - bye for now
+    - farewell
+    - later
+    - cya
+    - take care
+    - I’m off
+    - I have to go
+    - gotta go
+    - peace out
+    - adios
+    - toodle-oo
+    - until next time
+    - hear from you later
+    - good night
+    - night!
+    - ✌️
+
+# ─── REGISTER ───────────────────────────────────────────────────────────────
+- intent: register
+  examples: |
+    - I want to register
+    - sign me up
+    - create account
+    - I’d like to register
+    - register me
+    - I need to sign up
+    - I’d like to create an account
+    - enroll me
+    - start registration
+    - I want an account
+    - open an account
+    - register a new user
+    - I need to register
+    - can I register?
+    - register for service
+    - register please
+    - let’s sign up
+    - new registration
+    - help me register
+    - I want to join
+    - count me in
+    - I’m new here
+
+# ─── PROVIDE_USERNAME ───────────────────────────────────────────────────────
+- intent: provide_username
+  examples: |
+    - my username is [john_doe](username)
+    - you can call me [alice123](username)
+    - set my username to [bob_smith](username)
+    - I’d like [charlie_89](username)
+    - it’s [dev_guy](username)
+    - choose [cool_user](username)
+    - please use [star_gazer](username)
+    - [techie](username)
+    - [gamer01](username)
+    - [shopper007](username)
+    - I am [user_2025](username)
+    - use [alpha_beta](username)
+    - call me [delta_echo](username)
+    - name me [foxtrot](username)
+    - my handle is [ninja](username)
+    - my nick is [rockstar](username)
+    - user [happy123](username)
+    - I go by [sunshine](username)
+    - account name [moonlight](username)
+    - pick [starlord](username)
+
+# ─── PROVIDE_EMAIL ──────────────────────────────────────────────────────────
+- intent: provide_email
+  examples: |
+    - my email is [john@example.com](email)
+    - you can reach me at [alice@mail.com](email)
+    - it’s [bob.smith@domain.org](email)
+    - contact me via [charlie@yahoo.com](email)
+    - send to [user123@gmail.com](email)
+    - use [info@company.co](email)
+    - my address is [me@something.net](email)
+    - you have [test.user@domain.com](email)
+    - I use [hello@world.io](email)
+    - email [coolguy@site.org](email)
+    - it’s [first.last@service.com](email)
+    - my inbox is [foo@bar.com](email)
+    - send mail to [abc123@xyz.net](email)
+    - drop a line at [ping@pong.io](email)
+    - reply to [mail@domain.edu](email)
+    - my contact is [contact@me.com](email)
+    - reach me at [support@user.co](email)
+    - message me at [msg@chatbot.ai](email)
+    - use [signup@web.com](email)
+    - subscriber [sub@domain.org](email)
+
+# ─── ORDER ──────────────────────────────────────────────────────────────────
+- intent: order
+  examples: |
+    - I want to order a phone
+    - can I place an order?
+    - I’d like to buy a new handset
+    - help me order a device
+    - I need to purchase a phone
+    - order phone
+    - buy phone
+    - place an order
+    - let me order
+    - I want to make an order
+    - I’d like to place an order
+    - I want to purchase
+    - order now
+    - purchase now
+    - buy device
+    - I’m ready to order
+    - start order
+    - begin purchase
+    - ordering
+    - can you order for me?
+    - I’d like to shop
+    - initiate purchase
+
+# ─── PROVIDE_USER_ID ────────────────────────────────────────────────────────
+- intent: provide_user_id
+  examples: |
+    - my user ID is [a1b2c3d4](user_id)
+    - here’s my ID: [abcd1234](user_id)
+    - it’s [user5678](user_id)
+    - user ID [x9y8z7w6](user_id)
+    - I am [f1e2d3c4](user_id)
+    - [1234abcd](user_id)
+    - use ID [john0001](user_id)
+    - [uid9876](user_id)
+    - ID is [u1234](user_id)
+    - that’s [id5555](user_id)
+    - my ID: [xyz9999](user_id)
+    - here: [u5678](user_id)
+    - it’s ID [user_01](user_id)
+    - login ID [lid2025](user_id)
+    - account ID [acc3456](user_id)
+    - you have [uid1000](user_id)
+    - call me [idalpha](user_id)
+    - user code [uc1234](user_id)
+    - referencing [ref0001](user_id)
+    - tag is [t12345](user_id)
+
+# ─── BROWSE_PRODUCTS ───────────────────────────────────────────────────────
+- intent: browse_products
+  examples: |
+    - show me the phones
+    - what products do you have?
+    - browse products
+    - let me see your catalog
+    - show catalog
+    - what can I buy?
+    - show me offerings
+    - list products
+    - show your inventory
+    - display products
+    - what do you sell?
+    - show me what you’ve got
+    - open product list
+    - I want to browse
+    - need to see products
+    - show items
+    - present products
+    - show all phones
+    - give me product list
+    - reveal catalog
+    - product overview
+    - catalog please
+
+# ─── RECOMMEND_PRODUCTS ────────────────────────────────────────────────────
+- intent: recommend_products
+  examples: |
+    - recommend me phones
+    - what are your best sellers?
+    - top selling products
+    - what do you recommend?
+    - best selling phones
+    - suggest me something
+    - what should I buy?
+    - recommend some devices
+    - give me recommendations
+    - your top picks
+    - what’s popular?
+    - show me recommended
+    - suggest best phones
+    - top 10 best sellers
+    - highlight favorites
+    - trending phones
+    - recommend top models
+    - show me hot picks
+    - what’s in demand?
+    - which are most popular?
+    - what are your hot items?
+
+# ─── PROVIDE_BUDGET ────────────────────────────────────────────────────────
+- intent: provide_budget
+  examples: |
+    - my budget is [300](budget)
+    - I can spend [500](budget)
+    - up to [200](budget)
+    - around [150](budget)
+    - no more than [100](budget)
+    - I have [400](budget) dollars
+    - budget [250](budget)
+    - about [600](budget)
+    - I can pay [350](budget)
+    - around [450](budget)
+    - keeping budget [275](budget)
+    - limit is [325](budget)
+    - max [299](budget)
+    - roughly [360](budget)
+    - under [420](budget)
+    - around [310](budget)
+    - budget about [480](budget)
+    - spending limit [550](budget)
+    - approx [375](budget)
+    - roughly [290](budget)
+
+# ─── TRACK_ORDER ───────────────────────────────────────────────────────────
+- intent: track_order
+  examples: |
+    - track my order
+    - where is my order?
+    - order status
+    - check order [12345](order_id)
+    - status of order [54321](order_id)
+    - order [98765](order_id) status
+    - track [11111](order_id)
+    - what’s happening with order [22222](order_id)
+    - order status [33333](order_id)
+    - can you track [44444](order_id)
+    - follow order [55555](order_id)
+    - order lookup [66666](order_id)
+    - fetch status of [77777](order_id)
+    - trace [88888](order_id)
+    - track package [99999](order_id)
+    - show me order [00001](order_id)
+    - check [11112](order_id)
+    - status [13131](order_id)
+    - order ID [14141](order_id)
+    - order check [15151](order_id)
+
+# ─── PROVIDE_ORDER_ID ──────────────────────────────────────────────────────
+- intent: provide_order_id
+  examples: |
+    - my order id is [12345](order_id)
+    - it’s [54321](order_id)
+    - order ID [98765](order_id)
+    - [11111](order_id)
+    - use [22222](order_id)
+    - I have order [33333](order_id)
+    - order [44444](order_id)
+    - that’s [55555](order_id)
+    - here’s [66666](order_id)
+    - [77777](order_id)
+    - ID is [88888](order_id)
+    - checks [99999](order_id)
+    - call [00001](order_id)
+    - order ref [12321](order_id)
+    - order #[13231](order_id)
+    - code [14141](order_id)
+    - ref [15151](order_id)
+    - confirm [16161](order_id)
+    - order number [17171](order_id)
+    - order token [18181](order_id)
+
+# ─── MAKE_COMPLAINT ────────────────────────────────────────────────────────
+- intent: make_complaint
+  examples: |
+    - I want to complain
+    - I have a complaint
+    - there’s an issue
+    - I'd like to report a problem
+    - lodging a complaint
+    - I’m unhappy with my order
+    - I want to file a complaint
+    - report an issue
+    - complaint
+    - problem with service
+    - I need to complain
+    - dissatisfied
+    - reporting a problem
+    - frustrated with service
+    - this is unacceptable
+    - unsatisfied
+    - issue with product
+    - service was poor
+    - product damaged
+    - want to complain
+    - lodging issue
+
+# ─── PROVIDE_COMPLAINT ──────────────────────────────────────────────────────
+- intent: provide_complaint
+  examples: |
+    - my order never arrived
+    - I received the wrong item
+    - package is damaged
+    - my device is broken
+    - it stopped working
+    - customer service was rude
+    - delayed delivery
+    - missing accessories
+    - defective product
+    - poor quality
+    - billing error
+    - incorrect charge
+    - item is scratched
+    - phone has a crack
+    - battery doesn’t hold charge
+    - charger missing
+    - wrong color
+    - accessories missing
+    - packaging torn
+    - sound is distorted
+
+# ─── PROVIDE_TRACKING_ID ────────────────────────────────────────────────────
+- intent: provide_tracking_id
+  examples: |
+    - my tracking ID is [t1234](tracking_id)
+    - it’s [track5678](tracking_id)
+    - tracking [abc123](tracking_id)
+    - ID [def456](tracking_id)
+    - use [ghi789](tracking_id)
+    - [t0001](tracking_id)
+    - here’s [t2222](tracking_id)
+    - my ID [t3333](tracking_id)
+    - that’s [t4444](tracking_id)
+    - [track9999](tracking_id)
+    - tracker [trk555](tracking_id)
+    - code [trk777](tracking_id)
+    - lookup [t8888](tracking_id)
+    - trace [t1212](tracking_id)
+    - ref [t2323](tracking_id)
+    - shipment [s1234](tracking_id)
+    - parcel ID [p5678](tracking_id)
+    - package [pkg999](tracking_id)
+    - ticket [tk000](tracking_id)
+    - case [c123](tracking_id)
+
+# ─── HUMAN_HELP ────────────────────────────────────────────────────────────
+- intent: human_help
+  examples: |
+    - I want to talk to a human
+    - talk to an agent
+    - connect me to support
+    - human help
+    - agent please
+    - need human assistance
+    - get me a human
+    - escalate to human
+    - customer support
+    - real person please
+    - operator please
+    - can I talk to someone?
+    - transfer me to human
+    - human operator
+    - live person
+    - support agent
+    - help me live
+    - please escalate
+    - direct me to support
+    - put me through
+
+# ─── NLU_FALLBACK ──────────────────────────────────────────────────────────
+- intent: nlu_fallback
+  examples: |
+    - [fallback]
+    - I'm not sure
+    - I don't know what to say
+    - uhh
+    - hmm
+    - random text
+    - help?
+    - ???

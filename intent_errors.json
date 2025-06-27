@@ -1,0 +1,82 @@
+[
+  {
+    "text": "✌️",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5473935604095459
+    }
+  },
+  {
+    "text": "order ID 98765",
+    "intent": "provide_order_id",
+    "intent_prediction": {
+      "name": "track_order",
+      "confidence": 0.9112274050712585
+    }
+  },
+  {
+    "text": "[fallback]",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "provide_order_id",
+      "confidence": 3.0458950277534313e-05
+    }
+  },
+  {
+    "text": "I'm not sure",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "browse_products",
+      "confidence": 9.396118912263773e-06
+    }
+  },
+  {
+    "text": "I don't know what to say",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 2.3709335437160917e-05
+    }
+  },
+  {
+    "text": "uhh",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "browse_products",
+      "confidence": 4.909819836029783e-05
+    }
+  },
+  {
+    "text": "hmm",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "browse_products",
+      "confidence": 7.833367999410257e-05
+    }
+  },
+  {
+    "text": "random text",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "browse_products",
+      "confidence": 1.106471518141916e-05
+    }
+  },
+  {
+    "text": "help?",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "register",
+      "confidence": 0.0008359348285011947
+    }
+  },
+  {
+    "text": "???",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5473935604095459
+    }
+  }
+]

@@ -1,0 +1,55 @@
+version: "3.1"
+stories:
+- story: happy path 1 (.\rasa_env\Lib\site-packages\rasa\cli\initial_project\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great  # predicted: provide_username: amazing
+  - action: utter_happy  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: happy path 2 (.\rasa_env\Lib\site-packages\rasa\cli\initial_project\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great  # predicted: provide_username: amazing
+  - action: utter_happy  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: goodbye
+  - action: utter_goodbye
+- story: sad path 1 (.\rasa_env\Lib\site-packages\rasa\cli\initial_project\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy  # predicted: nlu_fallback: not good
+  - action: utter_cheer_up  # predicted: action_default_fallback
+  - action: utter_did_that_help  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: affirm  # predicted: provide_username: yes
+  - action: utter_happy  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: sad path 2 (.\rasa_env\Lib\site-packages\rasa\cli\initial_project\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy  # predicted: nlu_fallback: not good
+  - action: utter_cheer_up  # predicted: action_default_fallback
+  - action: utter_did_that_help  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: deny  # predicted: nlu_fallback: not really
+  - action: utter_goodbye  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: sad path 3 (.\rasa_env\Lib\site-packages\rasa\cli\initial_project\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy  # predicted: make_complaint: very [terrible](tracking_id)
+  - action: utter_cheer_up  # predicted: action_default_fallback
+  - action: utter_did_that_help  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: deny  # predicted: goodbye: no
+  - action: utter_goodbye  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: bot challenge (.\rasa_env\Lib\site-packages\rasa\cli\initial_project\tests\test_stories.yml)
+  steps:
+  - intent: bot_challenge  # predicted: greet: are you a bot?
+  - action: utter_iamabot  # predicted: action_default_fallback

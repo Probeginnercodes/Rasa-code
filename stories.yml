@@ -1,0 +1,58 @@
+version: "3.1"
+
+stories:
+# ─── ORDER ──────────────────────────────────────────────────────────────────
+- story: order without registration
+  steps:
+  - intent: order
+  - action: utter_ask_email
+
+- story: register then order
+  steps:
+  - intent: register
+  - action: utter_ask_username
+  - intent: provide_username
+  - action: utter_ask_email
+  - intent: provide_email
+  - action: action_register_user
+  - action: utter_registration_success
+  - intent: order
+  - action: utter_ask_user_id
+  - intent: provide_user_id
+  - action: action_list_orders
+  - action: action_place_order
+  - action: utter_anything_else
+
+# ─── COMPLAINT ─────────────────────────────────────────────────────────────
+- story: new complaint
+  steps:
+  - intent: make_complaint
+  - action: utter_ask_username
+  - intent: provide_username
+  - action: action_check_existing
+  - slot_was_set:
+    - complaint_exists: false
+  - action: utter_ask_complaint
+  - intent: provide_complaint
+  - action: utter_ask_tracking_id
+  - intent: provide_tracking_id
+  - action: action_handle_complaint
+  - action: utter_complaint_logged
+  - action: utter_anything_else
+
+- story: existing complaint
+  steps:
+  - intent: provide_tracking_id
+  - action: action_check_existing
+  - slot_was_set:
+    - complaint_exists: true
+  - action: utter_handle_existing_complaint
+
+# ─── RECOMMENDATION ────────────────────────────────────────────────────────
+- story: budget recommendation
+  steps:
+  - intent: browse_products
+  - action: utter_ask_budget
+  - intent: provide_budget
+  - action: action_fetch_by_budget
+  - action: utter_anything_else

@@ -1,0 +1,9 @@
+rasa==3.6.10
+rasa-sdk==3.6.2
+rasa[transformers]==3.6.10
+torch
+transformers
+streamlit
+requests
+python-dotenv
+SQLAlchemy<2.0
